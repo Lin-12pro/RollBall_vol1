@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class CreateBall : MonoBehaviour
 {
-    public GameObject[] Balls;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject Ball;
+    public float Spawnspeed = 5f;
+
     void Start()
     {
-        
+        InvokeRepeating(nameof(Create), 0f, Spawnspeed);
     }
 
-    // Update is called once per frame
-    void Update()
+    void Create()
     {
-        
+        Instantiate(Ball, transform.position, Quaternion.identity);
     }
 }
